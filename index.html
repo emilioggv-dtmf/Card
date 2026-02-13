@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You just got a letter!</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #fdfcf0; /* Color papel viejo */
+            display: flex; justify-content: center; align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Botón estilo sobre/carta */
+        #letter-button {
+            padding: 30px 50px;
+            font-size: 20px;
+            color: #4a4a4a;
+            background: white;
+            border: 2px dashed #b5b5b5;
+            cursor: pointer;
+            box-shadow: 10px 10px 0px #e0e0e0;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        #letter-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 15px 15px 0px #d0d0d0;
+            border-color: #888;
+        }
+
+        #video-container {
+            display: none; position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+        }
+
+        video { width: 100%; height: 100%; object-fit: contain; }
+    </style>
+</head>
+<body>
+
+    <button id="letter-button" onclick="openLetter()">
+        📩 <br><br>
+        <b>YOU JUST GOT A LETTER!</b><br>
+        <small>(Click to open)</small>
+    </button>
+
+    <div id="video-container">
+        <video id="myVideo">
+            <source src="gemini_generated_video_AD941988.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById('letter-button').style.display = 'none';
+            const container = document.getElementById('video-container');
+            container.style.display = 'block';
+            const video = document.getElementById('myVideo');
+            video.play();
+        }
+    </script>
+</body>
+</html>
